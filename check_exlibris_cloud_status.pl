@@ -150,7 +150,7 @@ if (defined $opts{'n'}) {
   $xmlstr  =~ s#  *# #g;
     
   my $xml = new XML::Simple;
-  my $data = $xml->XMLin($xmlstr);
+  my $data = $xml->XMLin($xmlstr, SuppressEmpty => '');
            
   my $cloud_id       = $data->{'instance'}->{'id'};
   my $cloud_status   = $data->{'instance'}->{'status'};
@@ -239,7 +239,7 @@ if (defined $opts{'x'}) {
   my @xmlarr  = split("\r\n",  $xmlstr);
   $xmlstr  = join(' ', @xmlarr);
   my $xml = new XML::Simple;
-  my $data = $xml->XMLin($xmlstr);
+  my $data = $xml->XMLin($xmlstr, SuppressEmpty => '');
   print Dumper( $data );
 
   print "Instance: ", $data->{'instance'}->{'id'},       "\n";
