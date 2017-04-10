@@ -120,6 +120,8 @@ if (defined $opts{'c'}) {
   $xmlstr =~ s#\r\n#\n#g;
   $xmlstr =~ s#<message>#<message><![CDATA[#;
   $xmlstr =~ s#</message>#]]></message>#;
+  $xmlstr =~ s#<schedule>#<schedule><![CDATA[#;
+  $xmlstr =~ s#</schedule>#]]></schedule>#;
 
 #  my @xmlarr  = split("\r\n",  $xmlstr);
 #  $xmlstr  = join(' ', @xmlarr);
