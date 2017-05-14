@@ -4,7 +4,7 @@
 # EXL_CLOUD_STATUS.PL - Get ExLibris Cloud Status Information     #
 #                                                                 #
 # Version 0.2 08.04.2015                                          #
-# (c) St.Lohrum <lohrum@zib.de>, Zuse Institu Berlin              #
+# (c) St.Lohrum <lohrum@zib.de>, Zuse Institute Berlin            #
 #                                                                 #
 # This program return ExLibris cloud status information, given by #
 # status.exlibrisgroup.com. IP address has to be registered with  #
@@ -40,7 +40,7 @@ my $value     = '';
 my $HELPTEXT ="
 EXL_CLOUD_STATUS.PL - Get ExLibris Cloud Status Information
 
-(c) St.Lohrum <lohrum\@zib.de>, 27.03.2015, Zuse Institu Berlin 
+(c) St.Lohrum <lohrum\@zib.de>, 27.03.2015, Zuse Institute Berlin 
 
 This program return ExLibris cloud status information, given by
 status.exlibrisgroup.com. IP address has to be registered with
@@ -153,7 +153,7 @@ if (defined $opts{'n'}) {
     
   my $xml = new XML::Simple;
   my $data = $xml->XMLin($xmlstr, SuppressEmpty => '');
-           
+
   my $cloud_id       = $data->{'instance'}->{'id'};
   my $cloud_status   = $data->{'instance'}->{'status'};
   my $cloud_service  = $data->{'instance'}->{'service'};
@@ -203,7 +203,7 @@ if (defined $opts{'n'}) {
   } 
   
   if ($cloud_status eq 'ERROR') {  
-     print $cloud_status, 'OK: ', $message;
+     print $cloud_status, ': ', $message;
      exit($CLOUD_CODE{$cloud_status});
   }
  
